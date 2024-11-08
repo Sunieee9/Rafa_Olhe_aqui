@@ -12,7 +12,7 @@ def home():
     return render_template('home.html', usuario=usuario_logado)
 
 # Função executada antes de cada requisição, para verificar a autenticação do usuário
-@home_controller.before_request
+@home_controller.before_request #middleware (não sei como funciona direito)
 def autenticar_usuario():
     # Verifica se a rota solicitada é protegida, ou seja, requer autenticação
     rota_protegida = request.endpoint in ['home.admin_page', 'home.user_page']
